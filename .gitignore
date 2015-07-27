@@ -1,1 +1,4 @@
 **/*.exe
+/php/vendor/*
+/php/docs/*
+/php/test/phpunit.phar
