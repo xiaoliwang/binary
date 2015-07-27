@@ -1,0 +1,16 @@
+{
+    "name": "tomcao/binary",
+    "description": "a binary operation of php7",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom",
+            "email": "jiepengthegreat@126.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.*"
+    }
+}
