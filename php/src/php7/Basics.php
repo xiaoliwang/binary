@@ -81,6 +81,8 @@ class Basics{
 	
 	/**
 	 * to create a word with 1's at the positions of the trailing 0's in x, and 0's elsewhere, producing -1 if 0
+	 * has some instruction-level parallelism
+	 * 
 	 * @param int $n
 	 * @return int
 	 */
@@ -90,6 +92,7 @@ class Basics{
 	
 	/**
 	 * to create a word with 1's at the positions of the trailing 0's in x, and 0's elsewhere, producing -1 if 0
+	 * 
 	 * @param int $n
 	 * @return int
 	 */
@@ -99,10 +102,35 @@ class Basics{
 	
 	/**
 	 * to create a word with 1's at the positions of the trailing 0's in x, and 0's elsewhere, producing -1 if 0
+	 * 
 	 * @param int $n
 	 * @return int
 	 */
 	public function createTrailingZeros3(int $n): int{
 		return ($n & -$n) - 1;
+	}
+	
+	/**
+	 * to create a word with 0's at the positions of the trailing 1's in x, and 0's elsewhere, producing all 1's if 0
+	 * 
+	 * @param int $n
+	 * @return int
+	 */
+	public function createTrailingOnes(int $n): int{
+		return ~$n | ($n + 1);
+	}
+	
+	/**
+	 * to isolate the rightmost 1 bit,producing 0 if 0
+	 * 
+	 * @param int $n
+	 * @return int
+	 */
+	public function isolateTheRightmostOne(int $n): int{
+		return $n & (-$n);
+	}
+	
+	public function createTrailingOnesWithRightmostOne(int $n): int{
+		return $n ^ ($n - 1);
 	}
 }

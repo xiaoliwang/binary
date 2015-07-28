@@ -87,6 +87,30 @@ class BasicsTest extends PHPUnit_Framework_TestCase{
 		$this->assertEquals($expected, $returnNum);
 	}
 	
+	/**
+	 * @dataProvider binarydataProvider8
+	 */
+	public function testCreateTrailingOnes(int $num, int $expected){
+		$returnNum = self::$basics->createTrailingOnes($num);
+		$this->assertEquals($expected, $returnNum);
+	}
+	
+	/**
+	 * @dataProvider binarydataProvider9
+	 */
+	public function testIsolateTheRightmostOne(int $num, int $expected){
+		$returnNum = self::$basics->isolateTheRightmostOne($num);
+		$this->assertEquals($expected, $returnNum);
+	}
+	
+	/**
+	 * @dataProvider binarydataProvider10
+	 */
+	public function testCreateTrailingOnesWithRightmostOne(int $num, int $expected){
+		$returnNum = self::$basics->createTrailingOnesWithRightmostOne($num);
+		$this->assertEquals($expected, $returnNum);
+	}
+	
 	///////////////////////////数据///////////////////////
 	public function binarydataProvider1(): array{
 		$expects = [0b1001100, 0b10010110, 0, -8, -6];
@@ -126,6 +150,24 @@ class BasicsTest extends PHPUnit_Framework_TestCase{
 	
 	public function binarydataProvider7(): array{
 		$expects = [1, 0, -1, 3, 0];
+		$this->unionArray($expects);
+		return $expects;
+	}
+	
+	public function binarydataProvider8(): array{
+		$expects = [-1, -8, -1, -1, -4];
+		$this->unionArray($expects);
+		return $expects;
+	}
+	
+	public function binarydataProvider9(): array{
+		$expects = [2, 1, 0, 4, 1];
+		$this->unionArray($expects);
+		return $expects;
+	}
+	
+	public function binarydataProvider10(): array{
+		$expects = [3, 1, -1, 7, 1];
 		$this->unionArray($expects);
 		return $expects;
 	}
