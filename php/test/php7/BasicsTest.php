@@ -3,7 +3,7 @@ require_once('../src/php7/Basics.php');
 use tomcao\php7\binary as binary;
 class BasicsTest extends PHPUnit_Framework_TestCase{
 	
-	//基础数据提供
+	//基础数据提供[78, 151, 0, -4, -5]
 	private $basicBinaryDatas = [0b01001110, 0b10010111, 0, -4, -5];
 	protected static $basics;
 	
@@ -111,6 +111,29 @@ class BasicsTest extends PHPUnit_Framework_TestCase{
 		$this->assertEquals($expected, $returnNum);
 	}
 	
+	/**
+	 * @dataProvider binarydataProvider11
+	 */
+	public function testCreateTrailingOnesWithRightmostZero(int $num, int $expected){
+		$returnNum = self::$basics->createTrailingOnesWithRightmostZero($num);
+		$this->assertEquals($expected, $returnNum);
+	}
+	
+	/**
+	 * @dataProvider binarydataProvider12
+	 */
+	public function testTurnOffTheRightmostContiguousOnes1(int $num, int $expected){
+		$returnNum = self::$basics->turnOffTheRightmostContiguousOnes1($num);
+		$this->assertEquals($expected, $returnNum);
+	}
+	
+	/**
+	 * @dataProvider binarydataProvider12
+	 */
+	public function testTurnOffTheRightmostContiguousOnes2(int $num, int $expected){
+		$returnNum = self::$basics->turnOffTheRightmostContiguousOnes2($num);
+		$this->assertEquals($expected, $returnNum);
+	}
 	///////////////////////////数据///////////////////////
 	public function binarydataProvider1(): array{
 		$expects = [0b1001100, 0b10010110, 0, -8, -6];
@@ -172,6 +195,17 @@ class BasicsTest extends PHPUnit_Framework_TestCase{
 		return $expects;
 	}
 	
+	public function binarydataProvider11(): array{
+		$expects = [1, 15, 1, 1, 7];
+		$this->unionArray($expects);
+		return $expects;
+	}
+	
+	public function binarydataProvider12(): array{
+		$expects = [64, 144, 0, 0, -8];
+		$this->unionArray($expects);
+		return $expects;
+	}
 	//////////////////////////////公共方法//////////////////////
 	//打印二进制文件
 	public function decbinln(int $n){

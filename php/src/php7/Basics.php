@@ -130,7 +130,47 @@ class Basics{
 		return $n & (-$n);
 	}
 	
+	/**
+	 * to create a word with 1's at the positions of the rightmost 1-bit and the trailing 0's in x,producing all 1's if 0
+	 * 
+	 * @param int $n
+	 * @return int
+	 */
 	public function createTrailingOnesWithRightmostOne(int $n): int{
 		return $n ^ ($n - 1);
+	}
+	
+	/**
+	 * to create a word with 1's at the positions of the rightmost 0-bit and the trailing 1's in x,producing 1 if 0
+	 * 
+	 * @param int $n
+	 * @return int
+	 */
+	public function createTrailingOnesWithRightmostZero(int $n): int{
+		return $n ^ ($n + 1);
+	}
+	
+	/**
+	 * to turn off the rightmost contiguous string of 1's
+	 * 
+	 * @todo These can be used to determine if a nonnegative integer is of the form 2^j-2^k for sound j>=k>=0
+	 * 		 apply the formula by a 0-test on the result
+	 * @param int $n
+	 * @return int
+	 */
+	public function turnOffTheRightmostContiguousOnes1(int $n): int{
+		return ((($n | ($n - 1)) + 1) & $n);
+	}
+	
+	/**
+	 * to turn off the rightmost contiguous string of 1's
+	 *
+	 * @todo These can be used to determine if a nonnegative integer is of the form 2^j-2^k for sound j>=k>=0
+	 * 		 apply the formula by a 0-test on the result
+	 * @param int $n
+	 * @return int
+	 */
+	public function turnOffTheRightmostContiguousOnes2(int $n): int{
+		return (($n & -$n) + $n) & $n;
 	}
 }
