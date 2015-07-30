@@ -1,20 +1,17 @@
 <?php
 declare(strict_types=1);
 /**
- * PHP binary basic
+ * PHP binary basic manipulating rightmost bits
  * @category PHP7
- * @package tomcao\php7\binary
+ * @package tomcao\php7\binary\basic
  * @auth TomCao <jiepengthegreat@126.com>
  * @copyright 2015 TomCao
  * @license MIT
  * @version 1.0.0
  * @link https://github.com/xiaoliwang/binary
  */
-namespace tomcao\php7\binary;
-/**
- * @method int turnOffTheRightmostOne(int $n)
- */
-class Basics{	
+namespace tomcao\php7\binary\basic;
+class RightmostBits{	
 	/**
 	 * to turn off the rightmost 1-bit in a word, producing 0 if 0
 	 * 
