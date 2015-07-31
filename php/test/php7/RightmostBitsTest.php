@@ -134,6 +134,14 @@ class RightmostBitsTest extends PHPUnit_Framework_TestCase{
 		$returnNum = self::$basics->turnOffTheRightmostContiguousOnes2($num);
 		$this->assertEquals($expected, $returnNum);
 	}
+
+	/**
+	 * @dataProvider binarydataProvider13
+	 */
+	public function testSnoob(int $num, int $expected){
+		$returnNum = self::$basics->snoob($num);
+		$this->assertEquals($expected, $returnNum);
+	}
 	///////////////////////////数据///////////////////////
 	public function binarydataProvider1(): array{
 		$expects = [0b1001100, 0b10010110, 0, -8, -6];
@@ -203,6 +211,12 @@ class RightmostBitsTest extends PHPUnit_Framework_TestCase{
 	
 	public function binarydataProvider12(): array{
 		$expects = [64, 144, 0, 0, -8];
+		$this->unionArray($expects);
+		return $expects;
+	}
+
+	public function binarydataProvider13(): array{
+		$expects = [0b01010011, 0b10011011, 0, 0, -3];
 		$this->unionArray($expects);
 		return $expects;
 	}

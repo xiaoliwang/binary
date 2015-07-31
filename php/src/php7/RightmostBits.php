@@ -170,4 +170,13 @@ class RightmostBits{
 	public function turnOffTheRightmostContiguousOnes2(int $n): int{
 		return (($n & -$n) + $n) & $n;
 	}
+
+	public function snoob(int $n):  int{
+		if($n === 0) return $n;
+		$smallest = $n & -$n;
+		$ripple = $n + $smallest;
+		$ones = $n ^ $ripple;
+		$ones = intdiv(($ones >> 2),$smallest);
+		return $ripple | $ones;
+	}
 }
